@@ -1,2 +1,2 @@
-# pets3
-IT 328 Pets3
+# pets2
+pets2 pair program
