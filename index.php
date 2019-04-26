@@ -24,6 +24,8 @@
 
     $f3->set('colors', array('pink', 'green', 'blue'));
 
+    require_once("model/validation-functions.php");
+
     // define a default route
     $f3->route('GET /@pet', function($f3, $param)
     {
@@ -58,8 +60,24 @@
         echo "<a href='order'>Order a Pet</a>";
     });
 
-    $f3->route('GET|POST /order', function()
+    $f3->route('GET|POST /order', function($f3)
     {
+        if(isset($_SESSION))
+        {
+            session_destroy();
+        }
+
+        if(isset($_POST['animal'])) {
+            $animal = $_POST['animal'];
+            if(validString($animal)) {
+                $_SESSION['animal'] = $animal;
+                $f3->reroute('/order2');
+            }
+            else {
+                $f3->set("errors['animal']", "Please enter an animal.");
+            }
+        }
+
         $view = new Template();
         echo $view->render("views/form1.html");
     });

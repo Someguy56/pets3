@@ -12,10 +12,9 @@ function validColor($color){
 }
 
 function validString($string){
-    if($string!="" && is_nan($string)){
+    if($string!="" && is_string($string)){
         return true;
     } else{
         return false;
     }
-
 }
