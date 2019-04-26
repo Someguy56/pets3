@@ -21,6 +21,9 @@
     // Turn on Fat-free error reporting
     $f3->set('DEBUG', 3);
 
+
+    $f3->set('colors', array('pink', 'green', 'blue'));
+
     // define a default route
     $f3->route('GET /@pet', function($f3, $param)
     {
