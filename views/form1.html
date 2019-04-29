@@ -5,19 +5,20 @@
     <title>Animal</title>
 </head>
 <body>
+
+<repeat group="{{@errors}}" key="{{@animal}}" value="{{@error}}">
+    <h1>Error: {{@error}}</h1>
+</repeat>
+
 <form method="POST" action="#">
 
     <label>Animal
-        <input type="text" name="animal"></label>
+        <input type="text" name="animal" value="{{@previous}}">
+    </label>
 
     <input type="submit" value="Next">
 
-
-
 </form>
-
-
-
 
 </body>
 </html>
